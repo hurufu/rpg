@@ -2,7 +2,7 @@
 
 if test -z "$1"
 then
-	f='rpg.dot'
+	f='rpg2.dot'
 else
 	f="$1"
 fi

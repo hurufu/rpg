@@ -167,7 +167,7 @@ strict digraph {
 	}
 	subgraph cluster_arcmage {
 		label="Адепт Магии";
-		m3 -> M3;
+		m3 -> M1 -> M2 -> M3 -> M4 -> M4; 
 	}
 	subgraph cluster_druid {
 		label="Друид";

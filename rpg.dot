@@ -147,8 +147,8 @@ strict digraph {
 	}
 	subgraph cluster_assasin {
 		label="Ассасин";
-		v3 -> s1;
-		w3 -> s1
+		v3 -> ss1;
+		w3 -> ss1
 	}
 	subgraph cluster_paladin {
 		label="Паладин";

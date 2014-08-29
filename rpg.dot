@@ -144,7 +144,7 @@ strict digraph {
 	Развитое_Чародейство -> Искустное_Чародейство [style=dashed, label="+10М"];
 	subgraph cluster_dispel {
 		label="Чернокнижник";
-		Тьма;
+		Тьма -> d1 -> d2 -> d3;
 	}
 	subgraph cluster_assasin {
 		label="Ассасин";

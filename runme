@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if test -z "$1"
+then
+	f='rpg.dot'
+else
+	f="$1"
+fi
+dot -Tpng "$f" > "${f%%.dot}.png"
+feh "${f%%.dot}.png" &

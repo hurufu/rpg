@@ -1,0 +1,10 @@
+*.png
+*.svg
+*.ps
+*.pdf
+*jpg
+.directory
+*.bak
+*~
+*.orig
+*.old

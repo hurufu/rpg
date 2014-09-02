@@ -7,8 +7,8 @@ strict digraph rpg {
 	F [color="orange"]
 	FF [color="pink"]
 	node [fillcolor=green]
-	Лук Арбалет Алхимия Огонь Вода Земля Воздух Меч Топор Щит Летопись Тактика
-	Свет Тьма Природа Руны Кровь Тьма2 Свет2 Природа2 Руны2 Кровь2 Изначальная
+	Лук Арбалет Алхимия Стихия Меч Топор Щит Летопись Тактика Путь
+	Изначальная
 	node [fillcolor=violet]
 	Человек Гном Эльф Орк
 	node [label="+1", style=filled, shape=circle, fillcolor=orange, color=black]
@@ -19,31 +19,29 @@ strict digraph rpg {
 	edge [color="red"]
 	I -> I1 -> I2 -> I3 -> I4 -> I5 -> I6 -> I7 -> I7
 	edge [color="orange"]
-	F -> F1 -> F2 -> F3 -> FF
+	F -> F1 -> F2 -> F3 -> F4
 	edge [color="pink"]
-	FF -> FF1 -> FF2 -> FF3 -> FF4 -> FF4
+	FF -> F4
+	edge [color="orange:pink"]
+	F4 -> F5 -> F6 -> F7 -> F7
 	edge [color="orange:blue"]
 	Изначальная -> Y1 -> Y2 -> Y3 -> Y4 -> Y4
 
-	node [label="\N", shape=box, fillcolor=yellow]
+	node [label="", width=0.1 style=solid, shape=circle, color=violet]
+	_sword _axe
+
+	node [label="\N", shape=box, style=filled, fillcolor=yellow, color=black]
 	edge [color="violet"]
-	Человек -> Меч
+	Человек -> _sword
 	Человек -> Сопереживание
-	Человек -> Свет
-	Человек -> Тьма
-	Человек -> Летопись
-	Эльф -> Меч
-	Эльф -> Природа
+	Эльф -> _sword
 	Эльф -> Зачарованая_Стрела
 	Эльф -> Выстрел_В_Упор
-	Эльф -> Летопись
-	Гном -> Топор
-	Гном -> Руны
-	Гном -> Летопись
-	Орк -> Топор
-	Орк -> Кровь
+	Гном -> _axe
+	Орк -> _axe
 	Орк -> Устрашение
-	Орк -> Летопись
+	_sword -> Меч
+	_axe -> Топор
 
 	edge [color="red"]
 	I -> Перевязка
@@ -76,22 +74,13 @@ strict digraph rpg {
 	M -> Изначальная
 	M2 -> Основы_Чародейства -> Развитое_Чародейство -> Искустное_Чародейство
 	M3 -> MM
-	M3 -> MM
-	M3 -> MM
-	M3 -> MM
 	M4 -> Искустное_Чародейство
 	edge [color="cyan"]
-	MM -> FM1 -> FM2 -> FM3 -> FM4 -> FM4
-	MM -> WM1 -> WM2 -> WM3 -> WM4 -> WM4
-	MM -> EM1 -> EM2 -> EM3 -> EM4 -> EM4
-	MM -> AM1 -> AM2 -> AM3 -> AM4 -> AM4
+	MM -> SM1 -> SM2 -> SM3 -> SM4 -> SM4
 	MM -> Искустное_Чародейство
 
 	edge [color="green"]
-	Огонь -> FM1
-	Вода -> WM1
-	Земля -> EM1
-	Воздух -> AM1
+	Стихия -> SM1
 	Лук -> Метка
 	Лук -> Уклон [label="+1"]
 	Лук -> Рывок
@@ -110,35 +99,14 @@ strict digraph rpg {
 	Летопись -> Заклятый_Враг [label="+1"] // Урон к негативно описанной фракции
 	Тактика -> Формация
 	Тактика -> Первенство
-	Свет2 -> S4
-	Тьма2 -> T4
-	Природа2 -> N4
-	Руны2 -> R4
-	Кровь2 -> B4
+	Путь -> P1
+	Путь -> P4
 
 	edge [color="orange"]
-	F -> S1
-	F -> T1
-	F -> N1
-	F -> R1
-	F -> B1
+	F -> P1 -> P2 -> P3 -> P4 -> P5 -> P6 -> P7 -> P7
 	F -> Изначальная
-	Свет -> S1 -> S2 -> S3 -> Свет2
-	Тьма -> T1 -> T2 -> T3 -> Тьма2
-	Природа -> N1 -> N2 -> N3 -> Природа2
-	Руны -> R1 -> R2 -> R3 -> Руны2
-	Кровь -> B1 -> B2 -> B3 -> Кровь2
 	edge [color="pink"]
-	FF -> S4
-	FF -> T4
-	FF -> N4
-	FF -> R4
-	FF -> B4
-	S4 -> S5 -> S6 -> S7 -> S7
-	T4 -> T5 -> T6 -> T7 -> T7
-	N4 -> N5 -> N6 -> N7 -> N7
-	R4 -> R5 -> R6 -> R7 -> R7
-	B4 -> B5 -> B6 -> B7 -> B7
+	FF -> P4
 
 	edge [color="orange:blue"]
 	Y1 -> Медитация -> Поглощение_Маны

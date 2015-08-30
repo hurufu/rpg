@@ -6,5 +6,6 @@ then
 else
 	f="$1"
 fi
+
 dot -Tpng "$f" > "${f%%.dot}.png"
 feh "${f%%.dot}.png" &

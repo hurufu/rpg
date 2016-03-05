@@ -1,4 +1,4 @@
-strict digraph rpg {
+﻿	digraph rpg {
  	node [style=filled, fillcolor=gray]
  	D [color="brown"]
  	I [color="red"]
@@ -25,16 +25,28 @@ strict digraph rpg {
     bow1 bow2 bow3 bow4 bow5 bow6
  	node [label="+L -♥", style=filled, shape=circle, fillcolor=orange, color=black]
     speed_plus_heart_minus
-
+	node [label="+📃", style=filled, shape=circle, fillcolor=orange, color=black]
+	spell1 spell2 spell3 spell4 spell5 spell6
+	node [label="+🔮", style=filled, shape=circle, fillcolor=orange, color=black]
+	mana1 mana2 mana3 mana4 mana5
+	node [label="+🔮 -♥", style=filled, shape=circle, fillcolor=orange, color=black]
+	plus_mana_minus_heart
+	node [label="+🔮 -L", style=filled, shape=circle, fillcolor=orange, color=black]
+	plus_mana_minus_speed
+	
  	edge [color="brown"]
  	D -> speed1 -> speed2 -> bow6
     D -> bow1 -> bow2 -> bow3
     speed1 -> bow5
     bow1 -> speed5
 
-// 	edge [color="blue"]
-// 	M -> M1 -> M2 -> M3 -> M4
-// 	Стихия -> M1
+ 	edge [color="blue"]
+ 	M -> spell1 -> spell2
+	M -> mana1
+	spell1 -> mana2 -> spell3 -> MM
+	mana3 -> plus_mana_minus_heart
+	mana3 -> plus_mana_minus_speed
+	
 // 	edge [color="red"]
 // 	I -> I1 -> I2 -> I3 -> I4 -> I5 -> I6 -> I7 -> I7
     edge [color="red", weight=5]
@@ -120,14 +132,26 @@ strict digraph rpg {
  	speed5 -> Град_Стрел
  	bow2 -> Выстрел_В_Упор
  	speed2 -> Выстрел_В_Упор -> bow4
+	
  	edge [color="blue"]
+	mana1 -> Контрзаклинание
+	mana1 -> Основы_Чародейства 
+ 	Стихия -> spell1
 // 	M  -> Изначальная
-// 	M1 -> Разгадка_тайного
- 	M2 -> Основы_Чародейства -> Развитое_Чародейство -> Искустное_Чародейство
+ 	spell2 -> Разгадка_тайного
+	Разгадка_тайного -> spell5
+	Разгадка_тайного -> mana5
+ 	Основы_Чародейства -> Развитое_Чародейство -> Искустное_Чародейство
+	Основы_Чародейства -> Ученый
+	Ученый -> mana4
+	Ученый -> Свободная_магия
+	Свободная_магия -> spell6
+	Развитое_Чародейство -> mana3
 // 	M3 -> MM
 // 	M4 -> Искустное_Чародейство
 // 	M4 -> SM1
-// 	Искустное_Чародейство -> Котрзаклинание
+ 	spell1 -> Контрзаклинание
+	Контрзаклинание -> spell4
 // 	edge [color="cyan"]
 // 	MM  -> SM1 -> SM2 -> SM3 -> SM4 -> SM4
 // 	MM  -> Искустное_Чародейство

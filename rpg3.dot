@@ -44,8 +44,8 @@
  	M -> spell1 -> spell2
 	M -> mana1
 	spell1 -> mana2 -> spell3 -> MM
-	mana3 -> plus_mana_minus_heart
-	mana3 -> plus_mana_minus_speed
+	mana3 -> plus_mana_minus_heart -> plus_mana_minus_heart
+	mana3 -> plus_mana_minus_speed -> plus_mana_minus_speed 
 	
 // 	edge [color="red"]
 // 	I -> I1 -> I2 -> I3 -> I4 -> I5 -> I6 -> I7 -> I7

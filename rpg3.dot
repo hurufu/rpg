@@ -32,7 +32,24 @@
 	plus_mana_minus_heart
 	node [label="+🔮 -L", style=filled, shape=circle, fillcolor=orange, color=black]
 	plus_mana_minus_speed
+	node [label="+ᛟ", style=filled, shape=circle, fillcolor=orange, color=black]
+	runes1 runes2 runes3 runes4 runes5 runes6
+	node [label="+🔮", style=filled, shape=circle, fillcolor=orange, color=black]
+	mana_r1 mana_r2 mana_r3 mana_r4 mana_r5
+	node [label="+🔮 -♥", style=filled, shape=circle, fillcolor=orange, color=black]
+	plus_mana_r_minus_heart
+	node [label="+🔮 -L", style=filled, shape=circle, fillcolor=orange, color=black]
+	plus_mana_r_minus_speed
+	node [label="+ᛟ'", style=filled, shape=circle, fillcolor=orange, color=black] // Нужно подобрать другой символ
+	runes7 runes8 runes9 runes10 runes11 runes12
+	node [label="+ᚨ'", style=filled, shape=circle, fillcolor=orange, color=black] // Нужно подобрать другой символ
+	runes_lvl1 runes_lvl2 runes_lvl3 runes_lvl4 runes_lvl5 
+	node [label="+ᛃ -♥", style=filled, shape=circle, fillcolor=orange, color=black] // Нужно подобрать другой символ
+	plus_runes_lvl_minus_heart
+	node [label="+ᛃ -L", style=filled, shape=circle, fillcolor=orange, color=black] // Нужно подобрать другой символ
+	plus_runes_lvl_minus_speed
 	
+	node [label="\N", shape=box, style=filled, fillcolor=yellow, color=black]
  	edge [color="brown"]
  	D -> speed1 -> speed2 -> bow6
     D -> bow1 -> bow2 -> bow3
@@ -56,21 +73,45 @@
     sword2 -> heart5
     edge [weight=1]
 
-// 	edge [color="orange"]
+ 	edge [color="orange"]
 // 	Вера -> FH1 -> FH2 -> FH3 -> FH4
 // 	Природа -> FE1 -> FE2 -> FE3 -> FE4
-// 	Руны -> FD1 -> FD2 -> FD3 -> FD4
 // 	Крик -> FO1 -> FO2 -> FO3 -> FO4
+ 	Руны -> runes1 -> runes2 -> mana_r4	// Требуется корекция
+	mana_r4 -> plus_mana_r_minus_heart -> plus_mana_r_minus_heart
+	mana_r4 -> plus_mana_r_minus_speed -> plus_mana_r_minus_speed
+	runes1 -> mana_r2 -> mana_r3
+	runes1 -> Ученик_рун -> runes3
+	runes2 -> Личные_руны
+	Личные_руны -> runes4
+	runes3 -> Знаток_рун
+	Личные_руны -> Дар_руны -> runes6
+	Ученик_рун -> Разрушение_руны
+	Знаток_рун -> runes5
+	Знаток_рун -> mana_r5
+	Знаток_рун -> FF 
 // 	edge [color="pink"]
 // 	FF -> FH4
 // 	FF -> FE4
 // 	FF -> FD4
 // 	FF -> FO4
-// 	edge [color="orange:pink"]
+ 	edge [color="orange:pink"]
 // 	FH4 -> FH5 -> FH6 -> FH7 -> FH7
 // 	FE4 -> FE5 -> FE6 -> FE7 -> FE7
-// 	FD4 -> FD5 -> FD6 -> FD7 -> FD7
 // 	FO4 -> FO5 -> FO6 -> FO7 -> FO7
+ 	FF -> Мастер_рун -> runes7 -> runes8
+	FF -> Стиль_рун -> Руна_факел
+	FF -> runes_lvl1 -> runes12
+	Руна_факел -> runes10
+	Руна_факел -> runes_lvl3
+	Мастер_рун -> Восстановление_рун
+	Восстановление_рун -> runes9
+	Восстановление_рун -> runes_lvl4
+	Стиль_рун -> runes_lvl2 -> runes11
+	runes7 -> runes_lvl5
+	runes_lvl5 -> plus_runes_lvl_minus_heart -> plus_runes_lvl_minus_heart
+	runes_lvl5 -> plus_runes_lvl_minus_speed -> plus_runes_lvl_minus_speed
+
 // 	edge [color="orange:blue"]
 // 	; Изначальная -> Y1 -> Y2 -> Y3 -> Y4 -> Y4
 // 
@@ -90,7 +131,7 @@
  	Эльф -> Выстрел_В_Упор [weight=0]
 // 	Эльф -> Природа
 // 	Гном -> _axe
-// 	Гном -> Руны
+ 	Гном -> Руны
 // 	Орк -> _axe
  	Орк -> Устрашение [weight=0]
 // 	Орк -> Крик
@@ -133,7 +174,7 @@
 	mana1 -> Контрзаклинание
 	mana1 -> Основы_Чародейства 
  	Хаос -> spell1
- 	M  -> Изначальная
+ 	M -> Изначальная
  	spell2 -> Разгадка_тайного
 	Разгадка_тайного -> spell5
 	Разгадка_тайного -> mana5
@@ -164,7 +205,7 @@
  	Топор -> Оглушение [weight=0]
  	Щит -> Прикрытие [weight=0]
  	Щит -> Удар_Щитом [weight=0]
-	Щит -> Стремительный снос //Нужно привязать этот навык с (I)
+	Щит -> Стремительный_снос //Нужно привязать этот навык с (I)
  	Алхимия -> Рецепты
  	Алхимия -> Яд
     Медицина -> Перевязка
@@ -182,7 +223,8 @@
  	F -> Изначальная
 // 	F -> Вера
 // 	F -> Природа
-// 	F -> Руны
+ 	F -> runes1
+	F -> mana_r1
 // 	F -> Крик
 // 	edge [color="pink"]
  
